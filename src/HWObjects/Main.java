@@ -42,7 +42,7 @@ public class Main {
     }
     public static void testBook() {
         printBook(testBook);
-        testBook.setTile("Too True To Be Good");
+        testBook.setTitle("Too True To Be Good");
         Author shaw = new Author("George Bernard Shaw");
         testBook.setAuthor(shaw);
         testBook.setYear(1931);

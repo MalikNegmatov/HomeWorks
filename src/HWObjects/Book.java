@@ -42,7 +42,7 @@ public class Book {
         return this.year;
     }
 
-    public void setTile(String title){
+    public void setTitle(String title){
         this.title = title;
     }
 
