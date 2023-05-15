@@ -37,7 +37,7 @@ public class Book {
         return this.author;
     }
     public String getAuthorName() {
-        return this.author.fullName();
+        return this.author.toString();
     }
 
     public int getYear(){
@@ -61,16 +61,22 @@ public class Book {
      * @return строка составленная из значений полей объекта библиографической ссылки.
      */
     public String citeBook() {
-        return "\"" + this.title + ": " + this.author.fullName() + ": " + this.year + "\";";
+        return "\"" + this.title + ": " + this.author + ": " + this.year + "\";";
     }
 
-    @Override
+    @Override // Переписали под требования вывода формата в доп.задаче.
     public String toString() {
-        return "Книга {" +
-                " Название книги: \"" + title + '\"' +
-                ", " + author + ", год издания = " + year +
-                " }";
+        return "Book:" + this.title + ": " + this.author + ": ";
+
     }
+
+//    @Override
+//    public String toString() {
+//        return "Книга {" +
+//                " Название книги: \"" + title + '\"' +
+//                ", " + author + ", год издания = " + year +
+//                " }";
+//    }
 
     @Override
     public boolean equals(Object other) {

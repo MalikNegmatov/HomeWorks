@@ -65,23 +65,28 @@ public class Author {
         this.lastName = lastName;
     }
 
-    /**
-     * Метод склеивания в строку полного имени Автора
-     * @return строка составленная из значений полей объекта разделенных пробелом.
-     */
-    public String fullName() {
-        String name;
-        name = this.firstName + " " + this.middleName + " " + this.lastName;
-        return name;
-    }
+//    /**
+//     * Метод склеивания в строку полного имени Автора
+//     * @return строка составленная из значений полей объекта разделенных пробелом.
+//     */
+//    public String fullName() {
+//        String name = "";
+//        if (this.firstName != null){
+//            name += this.firstName + " ";
+//        }
+//        if (this.middleName != null){
+//            name += this.middleName + " ";
+//        }
+//        return name + this.lastName;
+//    }
 
     @Override
     public String toString() {
         String name="Автор книги: ";
-        if ( this.firstName != null ) {
+        if ( this.firstName != "" ) {
             name += this.firstName + " ";
         }
-        if ( this.middleName != null ) {
+        if ( this.middleName != "" ) {
             name += this.middleName + " ";
         }
         if ( this.lastName != null ) {
