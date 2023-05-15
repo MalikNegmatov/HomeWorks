@@ -1,9 +1,9 @@
 package HWObjects;
 
 public class Book {
-    String title;   // Название книги
-    Author author = new Author(); // Автор книги
-    int year;  // Год издания книги
+    private String title;   // Название книги
+    private Author author = new Author(); // Автор книги
+    private int year;  // Год издания книги
 
     // Конструктор по умолчанию.
     Book() {
