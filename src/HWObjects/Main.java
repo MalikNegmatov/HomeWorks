@@ -19,25 +19,24 @@ public class Main {
         Author levTolstoyDouble = new Author("Лев Николаевич Толстой");
 
         System.out.println("Тест переопределения методов: toString, equals, hashCode, для класса Author: ");
-
+        // Тестируем toString
         System.out.println(testAuthor);
-        System.out.println(testAuthor);
+        System.out.println(mikhailBulgakov);
         System.out.println(levTolstoyDouble + "\n");
-
+        // Тестируем equals
         System.out.println(testAuthor.equals(levTolstoy));
         System.out.println(levTolstoy.equals(levTolstoyDouble) + "\n");
-
+        // Тестируем hashCode
         System.out.println(mikhailBulgakov.hashCode());
         System.out.println(bulgakovDouble.hashCode());
         System.out.println(levTolstoy.hashCode() + "\n");
-
 
         System.out.println("Переопределяем для класса Book: \n");
 
         Book testBook = new Book();
         Book warAndPeace = new Book("Война и мир", levTolstoy, 1867);
         Book theatricalNovel = new Book("Театральный роман", mikhailBulgakov, 1936);
-
+        // Тестируем toString
         System.out.println(testBook);
         System.out.println(warAndPeace);
         System.out.println(theatricalNovel);
@@ -50,7 +49,6 @@ public class Main {
         System.out.println(theatricalNovel.hashCode());
         theatricalNovel = warAndPeace;
         System.out.println(theatricalNovel.hashCode() + "\n");
-
     }
 
     public static void task2() {
@@ -89,8 +87,8 @@ public class Main {
         System.out.println(library);
     }
 }
-    /* По условию доп. задачи, код для класса main задан.
-       Ожидаемый вывод кода в консоли должет быть следующим:
+    /* По условию доп. задачи, код для класса main (task2()) задан заранее.
+       Ожидаемый вывод работы заданного кода в консоли должет быть следующим:
 
         Authors:
         Author copies equal: true
