@@ -2,7 +2,6 @@ package HWObjects;
 
 public class Main {
 
-    public static Book testBook = new Book(), warAndPeace, theatricalNovel;
     public static void main(String[] args) {
         // Задачи блока Объекты и классы
         task1();
@@ -10,91 +9,104 @@ public class Main {
         task2();
     }
 
-    public static void printAuthor(String author) {
-        System.out.println(author);
-    }
-
-    public static void printAuthor(Author author) {
-        String fullName = author.getFirstName() + " " + author.getMiddleName() + " " + author.getLastName();
-        System.out.println(fullName);
-    }
-    public static void testAuthor() {
-        Author testAuthor = new Author();
-        printAuthor(testAuthor);
-        testAuthor.setFirstName("George");
-        testAuthor.setMiddleName("Bernard");
-        testAuthor.setLastName("Shaw");
-        printAuthor(testAuthor.fullName());
-
-        Author levTolstoy = new Author("Лев", "Николаевич", "Толстой");
-        Author mikhailBulgakov = new Author("Михаил Афанасьевич Булгаков");
-        printAuthor(levTolstoy.fullName());
-        printAuthor(mikhailBulgakov);
-    }
-
-    public static void printBook(String book){
-        System.out.println(book);
-    }
-
-    public static void printBook(Book book){
-        String cite = "\"" + book.getTitle() + "\" // " + book.getAuthorName() + ", " + book.getYear() + " г.";
-        System.out.println(cite);
-    }
-    public static void testBook() {
-        printBook(testBook);
-        testBook.setTitle("Too True To Be Good");
-        Author shaw = new Author("George Bernard Shaw");
-        testBook.setAuthor(shaw);
-        testBook.setYear(1931);
-        printBook(testBook.citeBook());
-
-        Author levTolstoy = new Author("Лев", "Николаевич", "Толстой");
-        Author mikhailBulgakov = new Author("Михаил Афанасьевич Булгаков");
-
-        warAndPeace = new Book("Война и мир", levTolstoy, 1867);
-        printBook(warAndPeace.citeBook());
-        Author whoIs = warAndPeace.getAuthor();
-        printAuthor(whoIs);
-
-        theatricalNovel = new Book("Театральный роман", mikhailBulgakov, 1936);
-        printBook(theatricalNovel.citeBook());
-        theatricalNovel.setYear(1967);
-        printBook(theatricalNovel.citeBook());
-    }
-
     public static void task1() {
         System.out.println("Задача №1");
-        testAuthor();
-        System.out.println();
-        testBook();
-        System.out.println();
+
+        Author testAuthor = new Author();
+        Author levTolstoy = new Author("Лев", "Николаевич", "Толстой");
+        Author mikhailBulgakov = new Author("Михаил Афанасьевич Булгаков");
+        Author bulgakovDouble = new Author("Михаил", "Афанасьевич", "Булгаков");
+        Author levTolstoyDouble = new Author("Лев Николаевич Толстой");
+
+        System.out.println("Тест переопределения методов: toString, equals, hashCode, для класса Author: ");
+        // Тестируем toString
+        System.out.println(testAuthor);
+        System.out.println(mikhailBulgakov);
+        System.out.println(levTolstoyDouble + "\n");
+        // Тестируем equals
+        System.out.println(testAuthor.equals(levTolstoy));
+        System.out.println(levTolstoy.equals(levTolstoyDouble) + "\n");
+        // Тестируем hashCode
+        System.out.println(mikhailBulgakov.hashCode());
+        System.out.println(bulgakovDouble.hashCode());
+        System.out.println(levTolstoy.hashCode() + "\n");
+
+        System.out.println("Переопределяем для класса Book: \n");
+
+        Book testBook = new Book();
+        Book warAndPeace = new Book("Война и мир", levTolstoy, 1867);
+        Book theatricalNovel = new Book("Театральный роман", mikhailBulgakov, 1936);
+        // Тестируем toString
+        System.out.println(testBook);
+        System.out.println(warAndPeace);
+        System.out.println(theatricalNovel);
+        System.out.println(warAndPeace.citeBook() + "\n"); // Вывод в разном формате.
+        // Тестируем equals.
+        System.out.println(theatricalNovel.equals(theatricalNovel));
+        System.out.println(warAndPeace.equals(testBook) + "\n");
+        // Тестируем hashCode.
+        System.out.println(warAndPeace.hashCode());
+        System.out.println(theatricalNovel.hashCode());
+        theatricalNovel = warAndPeace;
+        System.out.println(theatricalNovel.hashCode() + "\n");
     }
+
     public static void task2() {
-        System.out.println("Задача №2");
-        Library myLibrary = new Library(5);
+        System.out.println("Задача №2 \n");
 
-        myLibrary.addBook(warAndPeace);
-        myLibrary.addBook(testBook);
-        myLibrary.addBook(theatricalNovel);
-        Author author = new Author("Лев Николаевич Толстой");
-        Book book = new Book("Анна Каренина", author, 1875);
-        myLibrary.addBook(book);
-        book = new Book("Воскресение", author, 1899);
-        myLibrary.addBook(book);
-        book = new Book("Декабристы", author, 1884);
-        myLibrary.addBook(book);
+        System.out.println("Authors:");
+        Author stephenKing = new Author("Stephen", null, "King");
+        Author stephenKing2 = new Author("Stephen", null, "King");
+        Author levTolstoy = new Author("Lev", null, "Tolstoy");
+        System.out.println("Author copies equal: " + stephenKing.equals(stephenKing2));
+        System.out.println("Author copies equal by hashCode: " + (stephenKing.hashCode() == stephenKing2.hashCode()));
+        System.out.println("Authors equal: " + stephenKing.equals(levTolstoy));
+        System.out.println("Authors equal by hashCode: " + (stephenKing.hashCode() == levTolstoy.hashCode()));
 
-        myLibrary.replaceBook(book,3);
-        System.out.println();
+        System.out.println(stephenKing);
+        System.out.println(levTolstoy);
 
-        myLibrary.printLibrary();
-        System.out.println();
+        System.out.println("==============================");
 
-        myLibrary.replaceYear(theatricalNovel.getTitle(),1936);
-        System.out.println();
-        myLibrary.printLibrary();
-        System.out.println();
+        System.out.println("Books:");
+        Book theStand = new Book("The Stand", stephenKing, 1976);
+        Book theStand2 = new Book("The Stand", stephenKing, 1976);
+        Book warAndPeace = new Book("War and Peace", levTolstoy, 1869);
+        System.out.println("Book copies equal: " + theStand.equals(theStand2));
+        System.out.println("Book copies equal by hashCode: " + (theStand.hashCode() == theStand2.hashCode()));
+        System.out.println("Books equal: " + theStand.equals(warAndPeace));
+        System.out.println("Books equal by hashCode: " + (theStand.hashCode() == warAndPeace.hashCode()));
+        System.out.println(theStand);
+        System.out.println(warAndPeace);
 
-        myLibrary.replaceYear("Воскрес",1936);
+        System.out.println("==============================");
+
+        Library library = new Library(2);
+        library.addBook(theStand);
+        library.addBook(warAndPeace);
+        System.out.println(library);
     }
 }
+    /* По условию доп. задачи, код для класса main (task2()) задан заранее.
+       Ожидаемый вывод работы заданного кода в консоли должет быть следующим:
+
+        Authors:
+        Author copies equal: true
+        Author copies equal by hashCode: true
+        Authors equal: false
+        Authors equal by hashCode: false
+        Author: Stephen King
+        Author: Lev Tolstoy
+        ==============================
+        Books:
+        Book copies equal: true
+        Book copies equal by hashCode: true
+        Books equal: false
+        Books equal by hashCode: false
+        Book: The Stand by Author: Stephen King
+        Book: War and Peace by Author: Lev Tolstoy
+        ==============================
+        Library:
+        Book: The Stand by Author: Stephen King
+        Book: War and Peace by Author: Lev Tolstoy
+    */
