@@ -82,6 +82,7 @@ public class Author {
 
     @Override
     public String toString() {
+//      return this.firstName + this.middleName + this.lastName;
         String name="";
         if ( this.firstName != "" ) {
             name += this.firstName + " ";
