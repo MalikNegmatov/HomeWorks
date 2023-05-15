@@ -55,9 +55,9 @@ public class Main {
         System.out.println("Задача №2 \n");
 
         System.out.println("Authors:");
-        Author stephenKing = new Author("Stephen", "", "King");
-        Author stephenKing2 = new Author("Stephen", "", "King");
-        Author levTolstoy = new Author("Lev", "", "Tolstoy");
+        Author stephenKing = new Author("Stephen", null, "King");
+        Author stephenKing2 = new Author("Stephen", null, "King");
+        Author levTolstoy = new Author("Lev", null, "Tolstoy");
         System.out.println("Author copies equal: " + stephenKing.equals(stephenKing2));
         System.out.println("Author copies equal by hashCode: " + (stephenKing.hashCode() == stephenKing2.hashCode()));
         System.out.println("Authors equal: " + stephenKing.equals(levTolstoy));

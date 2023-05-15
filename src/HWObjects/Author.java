@@ -82,12 +82,12 @@ public class Author {
 
     @Override
     public String toString() {
-//      return this.firstName + this.middleName + this.lastName;
+//      return this.firstName + " " + this.middleName + " " + this.lastName;
         String name="";
-        if ( this.firstName != "" ) {
+        if ( this.firstName != null) {
             name += this.firstName + " ";
         }
-        if ( this.middleName != "" ) {
+        if ( this.middleName != null ) {
             name += this.middleName + " ";
         }
         if ( this.lastName != null ) {
