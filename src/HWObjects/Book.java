@@ -66,7 +66,7 @@ public class Book {
 
     @Override // Переписали под требования вывода формата в доп.задаче.
     public String toString() {
-        return "Book:" + this.title + ": " + this.author + ": ";
+        return "Book: " + this.title + " by Author: " + this.author;
 
     }
 

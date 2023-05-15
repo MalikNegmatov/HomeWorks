@@ -82,7 +82,7 @@ public class Author {
 
     @Override
     public String toString() {
-        String name="Автор книги: ";
+        String name="";
         if ( this.firstName != "" ) {
             name += this.firstName + " ";
         }

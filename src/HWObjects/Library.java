@@ -60,7 +60,7 @@ public class Library {
 
     @Override
     public String toString() {
-        String out = "";
+        String out = "Library: \n";
         for (int i = 0; i < this.currentIndex; i++) {
             out += this.books[i].toString() + "\n";
         }
