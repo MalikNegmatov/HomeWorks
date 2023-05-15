@@ -1,9 +1,9 @@
 package HWObjects;
 
 public class Author {
-    String firstName;   // имя Автора
-    String middleName; // отчество Автора
-    String lastName;    // фамилия Автора
+    private String firstName;   // имя Автора
+    private String middleName; // отчество Автора
+    private String lastName;    // фамилия Автора
 
     // Конструктор по умолчанию.
     Author () {

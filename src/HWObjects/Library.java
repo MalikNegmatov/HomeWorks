@@ -2,7 +2,7 @@ package HWObjects;
 
 public class Library {
     private final Book[] books;
-    int sizeLibrary; // класс без сеттеров, используем передаваемый параметр
+    private final int sizeLibrary; // класс без сеттеров, используем передаваемый параметр
     private int currentIndex; // Индекс свободной ячейки массива
 
     Library(int sizeLibrary){
