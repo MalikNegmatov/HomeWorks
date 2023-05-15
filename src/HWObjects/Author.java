@@ -77,7 +77,7 @@ public class Author {
 
     @Override
     public String toString() {
-        String name="Автор книги: [";
+        String name="Автор книги: ";
         if ( this.firstName != null ) {
             name += this.firstName + " ";
         }
@@ -87,7 +87,7 @@ public class Author {
         if ( this.lastName != null ) {
             name += this.lastName;
         }
-        return name + "]";
+        return name;
     }
     @Override
     public boolean equals(Object other) {

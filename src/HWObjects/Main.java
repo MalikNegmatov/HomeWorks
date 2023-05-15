@@ -35,7 +35,26 @@ public class Main {
         System.out.println();
 
         System.out.println("Переопределяем для класса Book: ");
+        System.out.println();
 
+        Book testBook = new Book();
+        Book warAndPeace = new Book("Война и мир", levTolstoy, 1867);
+        Book theatricalNovel = new Book("Театральный роман", mikhailBulgakov, 1936);
+
+        System.out.println(testBook);
+        System.out.println(warAndPeace);
+        System.out.println(theatricalNovel);
+        System.out.println(warAndPeace.citeBook()); // Вывод в разном формате.
+        // Тестируем equals.
+        System.out.println();
+        System.out.println(theatricalNovel.equals(theatricalNovel));
+        System.out.println(warAndPeace.equals(testBook));
+        // Тестируем hashCode.
+        System.out.println();
+        System.out.println(warAndPeace.hashCode());
+        System.out.println(theatricalNovel.hashCode());
+        theatricalNovel = warAndPeace;
+        System.out.println(theatricalNovel.hashCode());
         System.out.println();
     }
 

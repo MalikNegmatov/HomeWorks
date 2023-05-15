@@ -1,5 +1,7 @@
 package HWObjects;
 
+import java.util.Objects;
+
 public class Book {
     private String title;   // Название книги
     private Author author = new Author(); // Автор книги
@@ -61,5 +63,38 @@ public class Book {
     public String citeBook() {
         return "\"" + this.title + ": " + this.author.fullName() + ": " + this.year + "\";";
     }
+
+    @Override
+    public String toString() {
+        return "Книга {" +
+                " Название книги: \"" + title + '\"' +
+                ", " + author + ", год издания = " + year +
+                " }";
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+
+        Book book = (Book) other;
+        return  year == book.year &&
+                Objects.equals(title, book.title) &&
+                Objects.equals(author, book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, author, year);
+    }
+
+//    По рекомендациям он-лайн урока с наставником.
+//    @Override
+//    public int hashCode() {
+//        int result = title != null ? title.hashCode() : 0;
+//        result = 31 * result + (author != null ? author.hashCode() : 0);
+//        result = 31 * result + year;
+//        return result;
+//    }
 
 }
