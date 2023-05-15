@@ -45,14 +45,17 @@ public class Library {
      * @param year - год замены.
      */
     public void replaceYear(String title, int year){
+        int count = 0;
         for (int i = 0; i < this.sizeLibrary; i++) {
             if ( title.equals(this.books[i].getTitle()) ) {
                 this.books[i].setYear(year);
                 System.out.println("Год издания успешно изменен.");
-                return;
+                count++;
             }
         }
-        System.out.println("Книга \"" + title + "\" в библиотеке не найдена.");
+        if (count == 0 ) {
+            System.out.println("Книга \"" + title + "\" в библиотеке не найдена.");
+        }
     }
     public void printLibrary() {
         System.out.println("В текущей библиотеке " + this.currentIndex + " следующих книг:");
