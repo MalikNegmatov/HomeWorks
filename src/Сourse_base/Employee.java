@@ -9,7 +9,7 @@ public class Employee {
     public static int id = 1;   // счетчик для присваивания объекту класса уникального id
     private int idEmployee;     // id сотрудника
 
-    /** Блок реализации методов get и set для всех полей класса */
+    /** методы get и set для всех полей класса */
     public String getFirstName() {
         return firstName;
     }
