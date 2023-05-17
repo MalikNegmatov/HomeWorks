@@ -8,5 +8,8 @@ public class Main {
         System.out.println(employeeList[0].getMiddleName());
         System.out.println(employeeList[0].getLastName());
         System.out.println(employeeList[0].getIdEmployee());
+
+        String test = "godunov32 av";
+        System.out.println(ch);
     }
 }

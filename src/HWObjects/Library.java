@@ -11,6 +11,18 @@ public class Library {
         this.currentIndex = 0;
     }
 
+    public Book[] getBooks() {
+        return books;
+    }
+
+    public int getSizeLibrary() {
+        return sizeLibrary;
+    }
+
+    public int getCurrentIndex() {
+        return currentIndex;
+    }
+
     /**
      * Метод добавления книги в библиотеку
      * @param book - добавляемая книга
