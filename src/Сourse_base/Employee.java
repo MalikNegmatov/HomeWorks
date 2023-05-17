@@ -52,17 +52,36 @@ public class Employee {
         this.idEmployee = id;
         id++;
     }
-
     public Employee() {
         java.util.Random random = new java.util.Random();
-        this.firstName = fNames[random.nextInt(21)];
-        this.middleName = mNames[random.nextInt(21)];
-        this.lastName = lNames[random.nextInt(21)];
-        this.department = random.nextInt(5);
+        String[] names;
+        names = generateName();
+        this.firstName = names[0];
+        this.middleName = names[1];
+        this.lastName = names[2];
+        this.department = random.nextInt(5) + 1;
         this.salary = random.nextInt(200000) + 40000;
         this.idEmployee = id;
         id++;
     }
+    private String[] generateName() {
+        java.util.Random random = new java.util.Random();
+        String[] names = new String[3];
+        int i = random.nextInt(2);
+        if ( i == 0 ) {
+            names[0] = firstManNames[random.nextInt(21)];
+            names[1] = middleManNames[random.nextInt(21)];
+            names[2] = lastManNames[random.nextInt(21)];
+            return names;
+        }
+        else {
+            names[0] = firstFemaleNames[random.nextInt(21)];
+            names[1] = middleFemaleNames[random.nextInt(21)];
+            names[2] = lastFemaleNames[random.nextInt(21)];
+            return names;
+        }
+    }
+
     public String formatStr(String str) {
         str = checkInputErrors(str);
         return str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
@@ -75,8 +94,8 @@ public class Employee {
     }
     @Override
     public String toString() {
-        return "ID: " + this.idEmployee + "; ФИО: " + this.firstName + " " + this.middleName + " " + this.lastName
-                + "; Отдел №" + this.department + "; ЗП:" + this.salary + ".";
+        return "id " + this.idEmployee + ": " + this.lastName + " " + this.firstName + " " +
+                this.middleName + ": отдел №" + this.department + ": зарплата: " + this.salary;
     }
     @Override
     public boolean equals(Object other) {
@@ -103,14 +122,27 @@ public class Employee {
         return result;
     }
 
-    private String[] fNames = new String[] {"Иван", "Сергей", "Борис", "Павел", "Геннадий", "Алексей", "Александр",
+    /* Можно было бы прикрутить ресурсами текстовых файлов и подгружать. Но мы ещё этого как бы не знаем,
+       поэтому списки имен для генерации ФИО реализованы в виде статических массивов внутри класса */
+    private String[] firstManNames = new String[] {"Иван", "Сергей", "Борис", "Павел", "Геннадий", "Алексей", "Александр",
     "Виталий", "Олег", "Василий", "Петр", "Руслан", "Марат", "Владимир", "Дмитрий", "Радион", "Федор",
     "Семен", "Кирилл", "Андрей", "Феликс"};
-    private String[] mNames = new String[] {"Иванович", "Сергеевич", "Борисович", "Павлович", "Геннадьевич",
+    private String[] middleManNames = new String[] {"Иванович", "Сергеевич", "Борисович", "Павлович", "Геннадьевич",
             "Алексеевич", "Александрович", "Витальевич", "Олегович", "Васильевич", "Петрович", "Русланович",
             "Маратович", "Владимирович", "Дмитриевич", "Радионович", "Федорович", "Семенович", "Кириллович",
             "Андреевич", "Константинович"};
-    private String[] lNames = new String[] {"Хорошилов", "Сергеев", "Борисов", "Павлов", "Семашко",
+    private String[] lastManNames = new String[] {"Хорошилов", "Сергеев", "Борисов", "Павлов", "Семашко",
     "Васильев", "Родионов", "Прохоров", "Райкунов", "Малышев", "Точилин", "Сгибнев", "Фоминов",
     "Макаров", "Захаренко", "Шевченко", "Маслов", "Курбатов", "Шеин", "Рязанов", "Егоров"};
+
+    private String[] firstFemaleNames = new String[] {"Светлана", "Алёна", "Вероника", "Татьяна", "Маргарита",
+            "Варвара", "Александра", "Прасковья", "Анна", "Елена", "Вера", "Надежда", "Любовь", "Клара",
+            "Марина", "Алла", "Ульяна", "Евгения", "Лидия", "Ольга", "Наталья"};
+    private String[] middleFemaleNames = new String[] {"Ивановна", "Сергеевна", "Борисовна", "Павловна",
+            "Геннадьевна", "Алексеевна", "Александровна", "Витальевна", "Олеговна", "Васильевна", "Петровна",
+            "Руслановна", "Маратовна", "Владимировна", "Дмитриевна", "Радионовна", "Федоровна", "Семеновна",
+            "Кирилловна", "Андреевна", "Константиновна"};
+    private String[] lastFemaleNames = new String[] {"Реймер", "Сергеева", "Борисова", "Павлова", "Семашко",
+            "Васильева", "Родионова", "Прохорова", "Райкунова", "Малышева", "Точилина", "Сгибнева", "Фоминова",
+            "Макарова", "Захаренко", "Шевченко", "Маслова", "Курбатова", "Шеина", "Рязанова", "Егорова"};
 }
