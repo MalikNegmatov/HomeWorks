@@ -28,11 +28,20 @@ public class Main {
         for (int i = 0; i < 5; i++){
             System.out.println(employeeList[i]);
         }
-
+        printList();
 
 
     }
-    public static void printList(int size){
-
+    public static void printList(){
+        char ch = '-';
+        String out="+" + String.valueOf(ch).repeat(4) + "+" + String.valueOf(ch).repeat(15) + "+" +
+                String.valueOf(ch).repeat(16) + "+" + String.valueOf(ch).repeat(15) + "+" +
+                        String.valueOf(ch).repeat(7) + "+" + String.valueOf(ch).repeat(10) + "+";
+        System.out.println(out);
+        System.out.println("| id |       Имя       |    Отчество    |    Фамилия    | Отдел | Зарплата |");
+        out="+" + String.valueOf(ch).repeat(4) + "+" + String.valueOf(ch).repeat(15) + "+" +
+                String.valueOf(ch).repeat(16) + "+" + String.valueOf(ch).repeat(15) + "+" +
+                String.valueOf(ch).repeat(7) + "+" + String.valueOf(ch).repeat(10) + "+";
+        System.out.println(out);
     }
 }
