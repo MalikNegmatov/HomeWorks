@@ -1,47 +1,43 @@
 package Сourse_base;
 
+import static java.lang.String.*;
+
 public class Main {
-    public static Employee employeeList[] = new Employee[20];
+    public static char dash = '-', pipe = '|', plus = '+', blank = ' ';
+    public static String line;
+    public static Employee[] employeeList = new Employee[25];
     public static void main(String[] args) {
 
         employeeList[0] = new Employee("ИВ АН", "вАСИЛ ьЁвич", "Комис434cаржевский", 1, 30000);
 
-        for (int i = 1; i < 5; i++){
+        for (int i = 1; i < 11; i++) {
             employeeList[i] = new Employee();
         }
 
-        System.out.println(employeeList[0].formatStr(employeeList[0].getFirstName()));
-        System.out.println(employeeList[0].getMiddleName());
-        System.out.println(employeeList[0].getLastName());
-        System.out.println(employeeList[0].getIdEmployee());
-
-        System.out.printf("%-20s%-10s%-10s%n", "имя поля", "значение", "тип поля");
-        System.out.printf("%10s", employeeList[0].getIdEmployee());
-        System.out.printf("%10s", employeeList[0].getFirstName());
-        System.out.println();
-
-
-        System.out.printf("%-4s | %-20s | %-10s\n",employeeList[0].getIdEmployee(),
-                employeeList[0].getFirstName(), employeeList[0].getSalary());
-
-
-        for (int i = 0; i < 5; i++){
-            System.out.println(employeeList[i]);
+        printListFields();
+        for (int i = 0; i < 11; i++) {
+            printListString(employeeList[i]);
         }
-        printList();
-
-
+        System.out.println(line);
     }
-    public static void printList(){
-        char ch = '-';
-        String out="+" + String.valueOf(ch).repeat(4) + "+" + String.valueOf(ch).repeat(15) + "+" +
-                String.valueOf(ch).repeat(16) + "+" + String.valueOf(ch).repeat(15) + "+" +
-                        String.valueOf(ch).repeat(7) + "+" + String.valueOf(ch).repeat(10) + "+";
-        System.out.println(out);
-        System.out.println("| id |       Имя       |    Отчество    |    Фамилия    | Отдел | Зарплата |");
-        out="+" + String.valueOf(ch).repeat(4) + "+" + String.valueOf(ch).repeat(15) + "+" +
-                String.valueOf(ch).repeat(16) + "+" + String.valueOf(ch).repeat(15) + "+" +
-                String.valueOf(ch).repeat(7) + "+" + String.valueOf(ch).repeat(10) + "+";
-        System.out.println(out);
-    }
+        public static void printListFields () {
+            line = plus + valueOf(dash).repeat(4) + plus + valueOf(dash).repeat(19) +
+                    plus + valueOf(dash).repeat(15) + plus + valueOf(dash).repeat(16) + plus +
+                    valueOf(dash).repeat(9) + plus + valueOf(dash).repeat(12) + plus;
+            System.out.println(line);
+            String field = pipe + " id " + pipe + blank +
+                    "Фамилия" + valueOf(blank).repeat(11) + pipe + blank +
+                    "Имя" + valueOf(blank).repeat(11) + pipe +  blank +
+                    "Отчество" + valueOf(blank).repeat(7) + pipe + blank +
+                    "Отдел" + valueOf(blank).repeat(3) + pipe + blank +
+                    "Зарплата" + valueOf(blank).repeat(3) + pipe;
+            System.out.println(field);
+            System.out.println(line);
+        }
+        public static void printListString (Employee employee){
+            System.out.printf("| %-3s| %-18s| %-14s| %-15s| %-8s| %-11s|\n", employee.getIdEmployee(),
+                    employee.getLastName(), employee.getFirstName(), employee.getMiddleName(),
+                    employee.getDepartment(), employee.getSalary());
+        }
+
 }
